@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DNA PHASE 2</title>
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <style>
+    body,html {
+      margin: 0;
+      padding: 0;
+      font-family:"Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("https://ik.imagekit.io/hbd8egryz/DNA%20phase%202/wallpaperflare.com_wallpaper.jpg?updatedAt=1713275878949");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .content{
+      position: absolute;
+      top: 19%;
+      left: 13%; /* Adjust the distance from the top */
+      font-weight: 300px;
+      font-size: 4em;
+      text-align: center;
+      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+          background-clip: text;
+    }
+
+    p{
+      position: absolute;
+      width: 45%;
+      text-align: center;
+      color: white;
+      top: 50%;
+      left: 29%;
+      font-size: 1.2em;
+    }
+
+    #playButton {
+      position: absolute;
+      left: 45%;
+      top: 67%;
+      padding: 10px 20px;
+      size: 2%;
+      /* Adjust padding as needed */
+      font-size: 16px;
+      /* Adjust font size as needed */
+      background-color: rgba(45, 201, 209, 0.468);
+      /* Transparent white background */
+      backdrop-filter: blur(10px);
+      /* Blur effect */
+      color: #fff;
+      /* Text color */
+      border: none;
+      width: 10%;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #playButton:hover {
+      background-color: rgba(30, 29, 29, 0.3);
+      transform: scale(1.1);
+      /* Slightly darker transparent white color on hover */
+    }
+
+    @media screen and (max-width: 768px) {
+      .content {
+        font-size: 2em;
+      }
+    }
+
+    /* Navbar styles */
+    .navbar {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #fff;
+      margin-left: 20px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      border-bottom-color: #fff;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="overlay"></div>
+  <div class="navbar">
+    <a href="/login" class="login-button">Login</a>
+    <a href="#" class="request-button" onclick="sendEmail()">Request</a>
+  </div>
+  <div class="content">
+    <h1>The Genetic Code</h1>
+  </div>
+  <p>DNA Contains an organism's genetic code or "blueprint". Specific parts of which, when used wisely can lead to surprising results.</p>
+  <button id="playButton">Watch Intro</button>
+  <video id="video" style="display: none;">
+    <source src="https://ik.imagekit.io/hbd8egryz/DNA%20phase%202/WhatsApp%20Video%202024-04-19%20at%2014.54.04_77445ab2.mp4?updatedAt=1713518719094" type="video/mp4">
+  </video>
+  <script>
+    document.getElementById("playButton").addEventListener("click", function() {
+      var video = document.getElementById("video");
+      video.style.display = "block";
+
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+      }
+      video.play();
+    });
+
+    function sendEmail() {
+  var emailAddress = prompt("Enter your email address:");
+  if (emailAddress) {
+    // Hardcoded receiver's email address
+    var receiverEmail = "sushmabc2@gmail.com";
+    // Using the entered email in the body or subject for reference
+    var subject = encodeURIComponent("Email from: " + emailAddress);
+    var body = encodeURIComponent("I request access to the genetic code. My contact email is: " + emailAddress);
+    
+    window.location.href = "mailto:" + receiverEmail + "?subject=" + subject + "&body=" + body;
+  }
+}
+
+  </script>
+</body>
+
+</html>

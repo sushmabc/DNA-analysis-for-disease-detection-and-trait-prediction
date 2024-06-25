@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obesity Prediction Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          font-family: "Josefin Sans", sans-serif;
+        }
+    
+        .background-image {
+          background-image: url('https://ik.imagekit.io/hbd8egryz/DNA%20phase%202/593321.jpg?updatedAt=1713275880037');
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          overflow: hidden;
+          position: relative; /* Added to make absolute positioning work */
+        }
+
+        .content{
+            position: absolute;
+            top: 47%;
+            left: 22%;
+            transform: translate(-50%, -50%);
+            text-align: justify;
+            color: #ffffff;
+            text-shadow: 0 0 10px #000000;
+            }
+
+        h1{
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+  
+        label{
+            position: absolute;
+            font-size: 1em;
+        }
+
+        input{
+            margin-bottom: 10px;
+            margin-left: 55%;
+            padding: 10px;
+            width: 80%;
+            border: none;
+            box-shadow: #000000;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255); /* Slightly transparent background */
+            color: #100f0f; /* Text color */
+            font-size: 16px;
+        }
+
+        select{
+            font-family: "Josefin Sans", sans-serif;
+            margin-left: 55%;
+            margin-bottom: 1%;
+        }
+
+        #predict, .return-button{
+            margin-bottom: 10px;
+            margin-left: 55%;
+            padding: 10px;
+            width: 80%;
+            border: none;
+            box-shadow: #000000;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            color: #f7f7f7; /* Text color */
+            font-size: 16px;
+        }
+
+        .logout-button{
+            margin-bottom: 10px;
+            margin-left: 55%;
+            padding: 10px;
+            width: 80%;
+            border: none;
+            box-shadow: #000000;
+            background-color: rgba(232, 17, 17, 0.766);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            color: #ffffff; /* Text color */
+            font-size: 16px;
+        }
+
+        #predict:hover, .logout-button:hover, .return-button:hover{
+                 background-color: rgba(255, 255, 255, 0.2);
+                transform: scale(1.1);
+        }
+
+        h2{
+            position: absolute;
+            bottom: 1%;
+            color: white;
+            left: 9%;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="content">
+            <h1>Obesity Status Prediction</h1>
+                <form action="/obesity" method="post">
+                <label for="Gender">Gender:</label>
+                <select name="Gender" id="Gender">
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select><br>
+
+                    <label for="Age">Age:</label>
+                    <input type="number" id="Age" name="Age" placeholder="Age" required><br>
+
+                    <label for="Height">Height (in meters):</label>
+                    <input type="number" id="Height" name="Height" placeholder="Height" step="0.01" required><br>
+
+                    <label for="Weight">Weight (in kg):</label>
+                    <input type="number" id="Weight" name="Weight" placeholder="Weight" step="0.1" required><br>
+
+                    <label for="family_history_with_overweight">Family History of Overweight:</label>
+                    <select name="family_history_with_overweight" id="family_history_with_overweight">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select><br>
+
+                    <label for="FAVC">Frequent High Caloric Food Consumption:</label>
+                    <select name="FAVC" id="FAVC">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select><br>
+
+                    <label for="FCVC">Frequency of Vegetables Consumption:</label>
+                    <select name="FCVC" id="FCVC">
+                        <option value="1">Never</option>
+                        <option value="2">Sometimes</option>
+                        <option value="3">Always</option>
+                    </select><br>
+
+                    <label for="NCP">Number of Main Meals:</label>
+                    <select name="NCP" id="NCP">
+                        <option value="1">Between 1 & 2</option>
+                        <option value="2">Three</option>
+                        <option value="3">More than three</option>
+                    </select><br>
+
+                    <label for="CAEC">Consumption of Food Between Meals:</label>
+                    <select name="CAEC" id="CAEC">
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Frequently</option>
+                        <option value="3">Always</option>
+                    </select><br>
+
+                    <label for="SMOKE">Smoking:</label>
+                    <select name="SMOKE" id="SMOKE">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select><br>
+
+                    <label for="CH2O">Daily Water Consumption (liters):</label>
+                    <input type="number" id="CH2O" name="CH2O" placeholder="Water consumption (1-3)" step="0.1" required><br>
+
+                    <label for="SCC">Calories Consumption Monitoring:</label>
+                    <select name="SCC" id="SCC">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select><br>
+
+                    <label for="FAF">Physical Activity Frequency:</label>
+                    <input type="number" id="FAF" name="FAF" placeholder="Physical activity frequency (0-3)" step="0.1" required><br>
+
+                    <label for="TUE">Time Using Technology Devices (hours):</label>
+                    <input type="number" id="TUE" name="TUE" placeholder="Time using technology devices (0-2)" step="0.1" required><br>
+
+                    <label for="CALC">Alcohol Consumption:</label>
+                    <select name="CALC" id="CALC">
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Frequently</option>
+                        <option value="3">Always</option>
+                    </select><br>
+
+                    <label for="MTRANS">Main Transportation Mode:</label>
+                    <select name="MTRANS" id="MTRANS">
+                        <option value="0">Public Transportation</option>
+                        <option value="1">Walking</option>
+                        <option value="2">Automobile</option>
+                        <option value="3">Motorbike</option>
+                        <option value="4">Bike</option>
+                    </select><br>
+
+                    <label for="dna_sequence">DNA Sequence:</label>
+                    <input type="text" id="dna_sequence" name="dna_sequence" placeholder="DNA Sequence"><br>
+
+                    <input type="submit" value="Predict" id="predict">
+            </form>
+            <a href="/welcome"><button type="button" class="return-button">Back to Welcome Page</button></a>
+            <a href="/"><button type="button" class="logout-button">Logout</button></a>
+    </div>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+    <!-- Additional button for going back to the welcome page -->
+
+
+</body>
+</html>

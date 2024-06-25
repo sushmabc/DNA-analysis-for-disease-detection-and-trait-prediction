@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Loss Prediction Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          font-family: "Josefin Sans", sans-serif;
+        }
+    
+        .background-image {
+          background-image: url('https://ik.imagekit.io/hbd8egryz/DNA%20phase%202/2150365624.jpg?updatedAt=1712475650215');
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          overflow: hidden;
+          position: relative; /* Added to make absolute positioning work */
+        }
+
+        .content{
+            position: absolute;
+            top: 47%;
+            left: 22%;
+            transform: translate(-50%, -50%);
+            text-align: justify;
+            color: #ffffff;
+            text-shadow: 0 0 10px #000000;
+            }
+
+         h1{
+            font-size: 3em;
+            margin-bottom: 20px;
+           }
+
+        label{
+            position: absolute;
+            font-size: 1em;
+        }
+
+        input{
+            margin-bottom: 10px;
+            margin-left: 55%;
+            padding: 10px;
+            width: 80%;
+            border: none;
+            box-shadow: #000000;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255); /* Slightly transparent background */
+            color: #100f0f; /* Text color */
+            font-size: 16px;
+        }
+
+        select{
+            font-family: "Josefin Sans", sans-serif;
+            margin-left: 55%;
+            margin-bottom: 1%;
+        }
+
+        #submit, .back-button{
+            margin-bottom: 10px;
+            margin-left: 55%;
+            padding: 10px;
+            width: 80%;
+            border: none;
+            box-shadow: #000000;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            color: #f2e5e5; /* Text color */
+            font-size: 16px;
+        }
+
+        .return-button{
+            margin-bottom: 10px;
+            margin-left: 55%;
+            padding: 10px;
+            width: 80%;
+            border: none;
+            box-shadow: #000000;
+            background-color: rgba(240, 11, 11, 0.655);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            color: #f9f8f8; /* Text color */
+            font-size: 16px;
+        }
+
+        #submit:hover, .return-button:hover, .back-button:hover{
+                 background-color: rgba(255, 255, 255, 0.2);
+                transform: scale(1.1);
+        }
+
+        h2{
+            position: absolute;
+            bottom: 1%;
+            color: white;
+            left: 9%;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+    <div class="content">
+    <h1>Hair Loss Prediction Form</h1>
+    <form action="/balding" method="post">
+        <label for="genetics">Genetics:</label>
+        <select name="genetics">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="hormonal_changes">Hormonal Changes:</label>
+        <select name="hormonal_changes">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="medical_conditions">Medical Conditions:</label>
+        <select name="medical_conditions">
+            <option value="0">Alopecia Areata</option>
+            <option value="1">Androgenetic Alopecia</option>
+            <option value="2">Dermatitis</option>
+            <option value="3">Dermatosis</option>
+            <option value="4">Eczema</option>
+            <option value="5">No Condition</option>
+            <option value="6">Psoriasis</option>
+            <option value="7">Ringworm</option>
+            <option value="8">Scalp Infection</option>
+            <option value="9">Seborrheic Dermatitis</option>
+            <option value="10">Thyroid Problems</option>
+        </select><br><br>
+
+        <label for="medications_treatments">Medications & Treatments:</label>
+        <select name="medications_treatments">
+            <option value="0">Accutane</option>
+            <option value="1">Antibiotics</option>
+            <option value="2">Antidepressants</option>
+            <option value="3">Antifungal Cream</option>
+            <option value="4">Blood Pressure Medication</option>
+            <option value="5">Chemotherapy</option>
+            <option value="6">Heart Medication</option>
+            <option value="7">Immunomodulators</option>
+            <option value="8">No Treatments</option>
+            <option value="9">Rogaine</option>
+            <option value="10">Steroids</option>
+        </select><br><br>
+
+        <label for="nutritional_deficiencies">Nutritional Deficiencies:</label>
+        <select name="nutritional_deficiencies">
+            <option value="0">Biotin Deficiency</option>
+            <option value="1">Iron deficiency</option>
+            <option value="2">Magnesium deficiency</option>
+            <option value="3">No Deficiency</option>
+            <option value="4">Omega-3 fatty acids</option>
+            <option value="5">Protein deficiency</option>
+            <option value="6">Selenium deficiency</option>
+            <option value="7">Vitamin A Deficiency</option>
+            <option value="8">Vitamin D Deficiency</option>
+            <option value="9">Vitamin E deficiency</option>
+            <option value="10">Zinc Deficiency</option>
+        </select><br><br>
+
+        <label for="stress">Stress:</label>
+        <select name="stress">
+            <option value="0">High</option>
+            <option value="1">Low</option>
+            <option value="2">Moderate</option>
+        </select><br><br>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age"><br><br>
+
+        <label for="poor_hair_care_habits">Poor Hair Care Habits:</label>
+        <select name="poor_hair_care_habits">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="environmental_factors">Environmental Factors:</label>
+        <select name="environmental_factors">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="smoking">Smoking:</label>
+        <select name="smoking">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="weight_loss">Weight Loss:</label>
+        <select name="weight_loss">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        
+        <label for="dna_sequence">DNA Sequence:</label>
+        <input type="text" id="dna_sequence" name="dna_sequence"><br><br>
+
+        <input type="submit" value="Submit" id="submit">
+    </form>
+    <a href="/welcome"><button type="button" class="back-button">Back to Welcome Page</button></a>
+    <a href="/"><button type="button" class="return-button">Logout</button></a>
+    </div>
+    {% if prediction %}
+        <h2>{{ prediction }}</h2>
+    {% endif %}
+    <!-- Additional button for going back to the welcome page -->
+
+
+</body>
+</html>

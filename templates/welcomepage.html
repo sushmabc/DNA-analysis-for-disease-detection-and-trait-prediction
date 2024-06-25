@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DNA PHASE 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Josefin Sans", sans-serif;
+    }
+
+    .background-image {
+      background-image: url('https://ik.imagekit.io/hbd8egryz/DNA%20phase%202/1182795.jpg?updatedAt=1713349863137');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative; /* Added to make absolute positioning work */
+    }
+  
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity to make it dimmer */
+      z-index: -1;
+    }
+
+    .content{
+      position: absolute;
+      top: 30%;
+      left: 35%;
+      transform: translate(-50%, -50%);
+      text-align: justify;
+      color: #ffffff;
+      text-shadow: 0 0 10px #000000;
+    }
+
+    .welcome-header {
+      font-size: 4em;
+      margin-bottom: 20px;
+    }
+
+    .project-text {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      padding: 20px; /* Added padding for better readability */
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+    }
+
+    .project-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgba(255, 255, 255, 0.2); /* Transparent background */
+      backdrop-filter: blur(10px); /* Blur effect */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth transition on hover */
+      margin: 0 10px; /* Adjust margin between buttons */
+    }
+
+    .logout{
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgba(238, 17, 17, 0.853); /* Transparent background */
+      backdrop-filter: blur(10px); /* Blur effect */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth transition on hover */
+      margin: 0 10px;
+    }
+
+    .project-button:hover {
+      background-color: rgba(255, 255, 255, 0.2); /* Slightly darker transparent color on hover */
+      transform: scale(1.1);
+    }
+
+    #prevent{
+        position: absolute;
+        top: 245%;
+
+        left: 1%;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="background-image">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="welcome-header">Welcome Doctor, {{ user_name }}</h1>
+      <p class="project-text">
+        The software aims to utilize DNA sequencing data to predict potential health outcomes for individuals. It focuses on predicting susceptibility to COVID-19, baldness, and obesity based on genetic markers. By analyzing genetic variations, advanced machine learning algorithms generate predictive models for personalized risk assessments.Please choose on what you are going to work today*
+      </p>
+      <div class="button-container">
+        <a href="/covid"><button class="project-button">COVID-19</button></a>
+        <a href="/obesity"><button class="project-button">Obesity</button></a>
+        <a href="/balding"><button class="project-button">Balding</button></a>
+        <a href="/"><button class="logout">Logout</button></a>
+      </div>
+      <p id="prevent">Preventive results not to be taken as certificates*</p>
+    </div>
+  </div>
+</body>
+
+</html>

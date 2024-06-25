@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Susceptibility Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          font-family: "Josefin Sans", sans-serif;
+        }
+    
+        .background-image {
+          background-image: url('');
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("https://ik.imagekit.io/hbd8egryz/DNA%20phase%202/6859.jpg?updatedAt=1713721974448");
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          overflow: hidden;
+          position: relative; /* Added to make absolute positioning work */
+        }
+
+        .content{
+            position: absolute;
+            top: 30%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+            text-align: justify;
+            color: #ffffff;
+            text-shadow: 0 0 10px #000000;
+        }
+
+        .covid{
+        font-size: 3em;
+        margin-bottom: 20px;
+        }
+
+        label{
+            position: absolute;
+            font-size: 1em;
+        }
+
+        input,.vaccination_status{
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 80%;
+            border: none;
+            box-shadow: #000000;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255); /* Slightly transparent background */
+            color: #100f0f; /* Text color */
+            font-size: 16px;
+        }
+
+        #predict{
+            position: absolute;
+            left: 15%;
+            margin-bottom: 1px;
+            padding: 10px;
+            width: 50%;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            color: #ffffff; /* Text color */
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button{
+            position: absolute;
+            top: 120%;
+            left: 15%;
+            margin-bottom: 1px;
+            padding: 10px;
+            width: 50%;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            color: #ffffff; /* Text color */
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .return-button{
+            position: absolute;
+            top: 140%;
+            left: 15%;
+            margin-bottom: 1px;
+            padding: 10px;
+            width: 50%;
+            border: none;
+            background-color: rgba(221, 19, 19, 0.899);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            color: #ffffff; /* Text color */
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #predict:hover, .back-button:hover, .return-button{
+                background-color: rgba(255, 255, 255, 0.2);
+                transform: scale(1.1);
+        }
+
+        h2{
+            position: absolute;
+            margin-top: 8%;
+        }
+        p{
+            position: absolute;
+            margin-top: 15%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+     <div class="background-image">
+        <div class="content">
+            <h1 class="covid">COVID-19 Susceptibility Prediction</h1>
+                 <form action="/covid" method="post">
+                      <label for="dna_sequence">DNA Sequence:</label><br>
+                     <input type="text" id="dna_sequence" name="dna_sequence" required><br>
+                     <label for="age">Age:</label><br>
+                     <input type="number" id="age" name="age" required><br>
+                    <label for="vaccination_status">Vaccination Status:</label><br>
+                     <select class="vaccination_status" name="vaccination_status" required>
+                             <option value="0">Not Vaccinated</option>
+                            <option value="1">Partially Vaccinated</option>
+                            <option value="2">Fully Vaccinated</option>
+                     </select><br><br>
+                     <input type="submit" value="Predict Susceptibility" id="predict">
+                </form>
+            {% if result %}
+            <h2>Prediction Result</h2> 
+            <p>{{ result }}</p>
+            {% endif %}
+            <a href="/welcome"><button type="button" class="back-button">Back to Welcome Page</button></a>
+            <a href="/"><button type="button" class="return-button">Logout</button></a>
+        </div>
+        <!-- Additional button for going back to the welcome page -->
+
+
+</body>
+</html>
