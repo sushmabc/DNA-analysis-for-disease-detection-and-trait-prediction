@@ -84,9 +84,4 @@ This Flask application provides a web interface for predicting balding, obesity,
 
 - Ensure the machine learning model files (`best_model.pkl`, `obesity_model.pkl`, `model_svm_on_historical.pkl`) are in the correct location.
 - The `wuhan_virus.fasta` file should be present in the data directory.
-- Update `app.secret_key` and other sensitive information as needed.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+- Update `app.secret_key` and other sensitive information as needed
